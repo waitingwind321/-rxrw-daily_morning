@@ -30,7 +30,7 @@ template_id = 'jwdy3rSTGzqUvQ1dvthNd5bM2v22mwd5VSszdLAgHbg'
 
 def get_today():
   week_list = [ "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-  today = datetime.datetime.now()
+  today = datetime.now()
   return today.strftime("%Y-%m-%d") + '  ' + week_list[today.weekday()]
 
 def get_weather():
