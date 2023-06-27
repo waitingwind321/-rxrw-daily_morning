@@ -37,7 +37,7 @@ def get_weather_new():
   url = "https://api.seniverse.com/v3/weather/now.json?key=S3TT6fPbQKmCLF1VR&location=changsha&language=zh-Hans&unit=c"
   res = requests.get(url).json()
   weather = res['results'][0]['now']
-  return weather['text'],math.floor(weather['temperature'])
+  return weather['text'],int(weather['temperature'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
