@@ -26,7 +26,7 @@ app_id = 'wxb8d65642414c1c51'
 app_secret = 'e0b897fa8edcaf4c8348bfcc4872a88d'
 
 user_id = 'o6cMr6_Xkr6acU5b3w6-32pqirxU'
-template_id = 'jwdy3rSTGzqUvQ1dvthNd5bM2v22mwd5VSszdLAgHbg'
+template_id = 'QwzAoV1gWVQ10ejgiZW-SQlXIj1gl9NvzLkqSUhRcc4'
 
 def get_today():
   week_list = [ "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
