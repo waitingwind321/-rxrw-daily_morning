@@ -23,7 +23,7 @@ city = '杭州'
 birthday = '01-02'
 
 app_id = 'wxb8d65642414c1c51'
-app_secret = '29ae0dc2046a2179779124ff609711af'
+app_secret = 'e0b897fa8edcaf4c8348bfcc4872a88d'
 
 user_id = 'o6cMr6_Xkr6acU5b3w6-32pqirxU'
 template_id = 'jwdy3rSTGzqUvQ1dvthNd5bM2v22mwd5VSszdLAgHbg'
