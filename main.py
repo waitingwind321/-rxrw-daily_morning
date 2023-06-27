@@ -7,16 +7,25 @@ import os
 import random
 
 today = datetime.now()
-start_date = os.environ['START_DATE']
-city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
+#start_date = os.environ['START_DATE']
+#city = os.environ['CITY']
+#birthday = os.environ['BIRTHDAY']
 
-app_id = os.environ["APP_ID"]
-app_secret = os.environ["APP_SECRET"]
+#app_id = os.environ["APP_ID"]
+#app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
-template_id = os.environ["TEMPLATE_ID"]
+#user_id = os.environ["USER_ID"]
+#template_id = os.environ["TEMPLATE_ID"]
 
+start_date = '2023-06-26'
+city = '杭州'
+birthday = '01-02'
+
+app_id = 'wxc9a4535c3e6e81b8'
+app_secret = 'adf67e020b54b7c4520a02ac23ecb6de'
+
+user_id = 'ouqTY6KLFI_bSz1WPUfm4CqkCnOg'
+template_id = 'ERxQV1zscSRsiTG_1Z5I_6mhLgwplvWHDC2QWpXGVbs'
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
