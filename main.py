@@ -40,7 +40,7 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_weather_new():
-  url = "https://api.seniverse.com/v3/weather/daily.json?key=S3TT6fPbQKmCLF1VR&location=cangsha&language=zh-Hans&unit=c&start=0&days=5"
+  url = "https://api.seniverse.com/v3/weather/daily.json?key=S3TT6fPbQKmCLF1VR&location=changsha&language=zh-Hans&unit=c&start=0&days=5"
   res = requests.get(url).json()
   weather = res['results'][0]['daily'][0]
   return weather['text_day'],int(weather['high']),int(weather['low'])
