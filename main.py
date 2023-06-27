@@ -7,6 +7,7 @@ import os
 import random
 
 today = datetime.now()
+
 #start_date = os.environ['START_DATE']
 #city = os.environ['CITY']
 #birthday = os.environ['BIRTHDAY']
@@ -21,11 +22,16 @@ start_date = '2023-06-26'
 city = '杭州'
 birthday = '01-02'
 
-app_id = 'wxc9a4535c3e6e81b8'
-app_secret = 'adf67e020b54b7c4520a02ac23ecb6de'
+app_id = 'wxb8d65642414c1c51'
+app_secret = '29ae0dc2046a2179779124ff609711af'
 
-user_id = 'ouqTY6KLFI_bSz1WPUfm4CqkCnOg'
-template_id = 'ERxQV1zscSRsiTG_1Z5I_6mhLgwplvWHDC2QWpXGVbs'
+user_id = 'o6cMr6_Xkr6acU5b3w6-32pqirxU'
+template_id = 'jwdy3rSTGzqUvQ1dvthNd5bM2v22mwd5VSszdLAgHbg'
+
+def get_today():
+  week_list = [ "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+  today = datetime.datetime.now()
+  return today.strftime("%Y-%m-%d") + '  ' + week_list[today.weekday()]
 
 def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
@@ -34,10 +40,10 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_weather_new():
-  url = "https://api.seniverse.com/v3/weather/now.json?key=S3TT6fPbQKmCLF1VR&location=changsha&language=zh-Hans&unit=c"
+  url = "https://api.seniverse.com/v3/weather/daily.json?key=S3TT6fPbQKmCLF1VR&location=cangsha&language=zh-Hans&unit=c&start=0&days=5"
   res = requests.get(url).json()
-  weather = res['results'][0]['now']
-  return weather['text'],int(weather['temperature'])
+  weather = res['results'][0]['daily'][0]
+  return weather['text_day'],int(weather['high']),int(weather['low'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -62,7 +68,9 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, temperature = get_weather_new()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+wea, temperature_h,temperature_l = get_weather_new()
+#data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {"td":{"value":get_today()},"weather":{"value":wea},"temperature_h":{"value":temperature_h},"temperature_l":{"value":temperature_l},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+
 res = wm.send_template(user_id, template_id, data)
 print(res)
