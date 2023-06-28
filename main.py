@@ -20,12 +20,12 @@ today = datetime.now()
 
 start_date = '2023-06-26'
 city = '杭州'
-birthday = '01-02'
+birthday = '09-15'
 
 app_id = 'wxb8d65642414c1c51'
 app_secret = 'e0b897fa8edcaf4c8348bfcc4872a88d'
 
-user_id = 'o6cMr6_Xkr6acU5b3w6-32pqirxU'
+user_id = 'o6cMr69WLYF-GtDseZj4AgE5OazU'
 template_id = 'QwzAoV1gWVQ10ejgiZW-SQlXIj1gl9NvzLkqSUhRcc4'
 
 def get_today():
